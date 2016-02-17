@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": " browserify ./src/index.js -o ./public/bundle.js",
+    "watch": " watchify ./src/index.js -o ./public/bundle.js",
+    "server": "nodemon ./server/server.js",
+    "start": "budo -d ./public --serve bundle.js --live"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/nickmask/SolarV/issues"
   },
-  "homepage": "https://github.com/nickmask/SolarV#readme"
+  "homepage": "https://github.com/nickmask/SolarV#readme",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "budo": "^8.0.4",
+    "express": "^4.13.4",
+    "nodemon": "^1.8.1",
+    "simple-server": "^1.0.1",
+    "superagent": "^1.7.2",
+    "watchify": "^3.7.0"
+  }
 }

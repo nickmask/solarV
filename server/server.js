@@ -1,19 +1,14 @@
 var express = require('express')
+var exphbs  = require('express-handlebars')
+var routes = require('./routes')
 var app = express()
-var fs = require('fs')
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-})
+//Routes being called from my routes.js
+routes(app)
 
-app.get('/api/v1/address', function (req, res) {
-  fs.writeFile('./data/data.json', 'utf8', function (err, data){
-    res.send(JSON.parse(data))
-    })
-})
+app.use(express.static('/Users/nick/workspace/solarv/public'))
 
-
+app.listen(3000);

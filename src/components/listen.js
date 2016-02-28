@@ -1,14 +1,12 @@
 var $ = require('jquery')
 
-var userData = {}
-
-module.exports = function () {
-  $(document).ready(function () {
-    $('#submit').submit(function (e) {
-      e.preventDefault()
-      userData.roofSize = $('#roofSize').val()
-      userData.energyBill = $('#energyBill').val()
-      userData.address = $('#address').val()
-    })
+module.exports = function (callback) {
+  $('#submit').click(function () {
+    var userData = {}
+    userData.roofSize = $('#roofSize').val()
+    userData.energyBill = $('#energyBill').val()
+    userData.address = $('#address').val()
+    callback('http://localhost:3000/api/v1/addUserData', userData)
+    console.log(userData)
   })
 }

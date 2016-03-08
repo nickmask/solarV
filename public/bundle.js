@@ -12168,7 +12168,23 @@ module.exports = function (callback) {
 }
 
 },{"jquery":2}],5:[function(require,module,exports){
+var sunlightHours = 5.59
+
+var pricePerKW = 0.28859
+//kw per square meter is roughly 1000, but is then devided by efficency
+var kwPerSqMeter = 0.200
+
+
+module.exports = {sunlightHours : sunlightHours,
+  pricePerKW : pricePerKW,
+  kwPerSqMeter: kwPerSqMeter
+}
+},{}],6:[function(require,module,exports){
 var $ = require('jquery')
+var sunlightHours = require('./preferences').sunlightHours
+var pricePerKW = require('./preferences').pricePerKW
+var kwPerSqMeter = require('./preferences').kwPerSqMeter
+
 
 function KWGenerator () {
   var energyBill = $(".irs-single").text()
@@ -12177,28 +12193,24 @@ function KWGenerator () {
   //kw/month/squaremeter
   var kwPerDayPerSquareMeter = sunlightHours * kwPerSqMeter
   var requiredSizeinstall = Math.round(kwUsagePerDay / kwPerDayPerSquareMeter)
-  var requiredSizeInstall = Math.round(kwUsagePerDay / sunlightHours)
+  var installSize = kwUsagePerDay / sunlightHours
+  var requiredSizeInstall = Math.round(installSize * 100) / 100
   $('#recInstallSize').append('<h2>' + requiredSizeInstall + '</h2>' + '<p>Kilowatt system required</p>' +'<h2>' + requiredSizeinstall + '</h2>' + '<p>Meters squared required</p>')
 }
 
-var sunlightHours = 5.59
-
-var pricePerKW = 0.28859
-
-var kwPerSqMeter = 0.200
-
 module.exports = KWGenerator
-},{"jquery":2}],6:[function(require,module,exports){
+},{"./preferences":5,"jquery":2}],7:[function(require,module,exports){
 var $ = require('jquery')
 var listen = require('./components/listen')
 var KWGenerator = require('./components/recInstall')
 var slider = require('./components/entry')
 // var energySlider = require('./components/energySlider')
+
 $(document).ready(function () {
       slider()
       $("#energyBill").ionRangeSlider({
         min: 100,
-        max: 1000,
+        max: 800,
         from: 500,
         prefix: "$",
         step: 10,
@@ -12224,4 +12236,4 @@ $(document).ready(function () {
 //   .then(function (data) {
 
 //   })
-},{"./components/entry":3,"./components/listen":4,"./components/recInstall":5,"jquery":2}]},{},[6]);
+},{"./components/entry":3,"./components/listen":4,"./components/recInstall":6,"jquery":2}]},{},[7]);

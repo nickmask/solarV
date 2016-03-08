@@ -1,4 +1,8 @@
 var $ = require('jquery')
+var sunlightHours = require('./preferences').sunlightHours
+var pricePerKW = require('./preferences').pricePerKW
+var kwPerSqMeter = require('./preferences').kwPerSqMeter
+
 
 function KWGenerator () {
   var energyBill = $(".irs-single").text()
@@ -7,14 +11,9 @@ function KWGenerator () {
   //kw/month/squaremeter
   var kwPerDayPerSquareMeter = sunlightHours * kwPerSqMeter
   var requiredSizeinstall = Math.round(kwUsagePerDay / kwPerDayPerSquareMeter)
-  var requiredSizeInstall = Math.round(kwUsagePerDay / sunlightHours)
+  var installSize = kwUsagePerDay / sunlightHours
+  var requiredSizeInstall = Math.round(installSize * 100) / 100
   $('#recInstallSize').append('<h2>' + requiredSizeInstall + '</h2>' + '<p>Kilowatt system required</p>' +'<h2>' + requiredSizeinstall + '</h2>' + '<p>Meters squared required</p>')
 }
-
-var sunlightHours = 5.59
-
-var pricePerKW = 0.28859
-
-var kwPerSqMeter = 0.200
 
 module.exports = KWGenerator

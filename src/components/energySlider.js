@@ -1,12 +1,13 @@
 var $ = require('jquery')
 
-var energySlider = $("#energySlider").ionRangeSlider({
-    type: "double",
-    min: 0,
-    max: 1000,
-    from: 200,
-    to: 500,
-    grid: true
+var energySlider = $("#energyBill").ionRangeSlider({
+  min: 100,
+  max: 800,
+  from: 500,
+  prefix: "$",
+  step: 10,
+  onChange: function (data) {
+  $('#recInstallSize').html('')
 })
 
 module.exports = energySlider

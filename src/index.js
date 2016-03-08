@@ -3,11 +3,12 @@ var listen = require('./components/listen')
 var KWGenerator = require('./components/recInstall')
 var slider = require('./components/entry')
 // var energySlider = require('./components/energySlider')
+
 $(document).ready(function () {
       slider()
       $("#energyBill").ionRangeSlider({
         min: 100,
-        max: 1000,
+        max: 800,
         from: 500,
         prefix: "$",
         step: 10,

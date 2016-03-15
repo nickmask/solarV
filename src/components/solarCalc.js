@@ -1,10 +1,7 @@
-solarCalc = (panelSize, panelYield, solarRadiation, PerformanceRatio) => {
-  var energyOutput = panelSize *
-  roofSize *
+export default (panelSize, panelYield, solarRadiation, PerformanceRatio) => {
+  var energyOutput = panelSize * roofSize
   return energyOutput
 }
-
-export default solarCalc
 
 // E = A * r * H * PR
 

@@ -1,7 +1,7 @@
 import { expect } from 'chai'
-import solar from '../src/index.js'
 
-describe('solar', () => {
+//Test test, so meta.
+describe('test', () => {
   it('should work!', () => {
     expect(true).to.be.true
   })

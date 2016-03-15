@@ -1,4 +1,4 @@
-module.exports = function () {
+export default () => {
 
   global.jQuery = require('jquery');
   require('ion-rangeslider');

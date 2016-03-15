@@ -5,7 +5,8 @@ var pricePerKW = 0.28859
 var kwPerSqMeter = 0.200
 
 
-module.exports = {sunlightHours : sunlightHours,
+module.exports = {
+  sunlightHours : sunlightHours,
   pricePerKW : pricePerKW,
   kwPerSqMeter: kwPerSqMeter
 }

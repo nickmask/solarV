@@ -1,22 +1,20 @@
 var express = require('express')
-var exphbs  = require('express-handlebars')
-var routes = require('./routes')
+var path = require('path')
+var compression = require('compression')
+
 var app = express()
+app.use(compression())
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
-app.set('view engine', 'handlebars')
+// serve our static stuff like index.css
+app.use(express.static(path.join(__dirname, 'public')))
 
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: './db/auth.sqlite'
-  },
-  useNullAsDefault: true
+// send all requests to index.html so browserHistory in React Router works
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-//Routes being called from my routes.js
-routes(app)
 
-app.use(express.static('/Users/nick/workspace/solarv/public'))
-
-app.listen(3000);
+var PORT = process.env.PORT || 8080
+app.listen(PORT, function() {
+  console.log('Production Express server running at localhost:' + PORT)
+})

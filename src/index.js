@@ -1,28 +1,12 @@
-var $ = require('jquery')
-var listen = require('./components/listen')
-var KWGenerator = require('./components/recInstall')
-var slider = require('./components/entry')
-var mapAutoComplete = require('./components/mapAutoComplete')
-var energySlider = require('./components/energySlider')
+import $ from 'jquery'
+import kWGenerator from './components/kWGenerator'
+import slider from './components/entry'
+import mapAutoComplete from './components/mapAutoComplete'
+import energySlider from './components/energySlider'
 
-$(document).ready( function () {
+
+$(document).ready( () => {
       slider()
       energySlider()
       mapAutoComplete()
 })
-
-  // energySlider()
-
-
-// },
-//     })
-//     $('#energyBill').trigger("change", function () {
-//     console.log('Changing!')
-//     KWGenerator()
-//   })
-// })
-
-// requestData(address)
-//   .then(function (data) {
-
-//   })

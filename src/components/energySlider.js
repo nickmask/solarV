@@ -1,7 +1,7 @@
-var $ = require('jquery')
-var KWGenerator = require('./recInstall')
+import $ from 'jquery'
+import kWGenerator from './kWGenerator'
 
-module.exports = function () {
+export default function () {
       $("#energyBill").ionRangeSlider({
         min: 100,
         max: 800,
@@ -10,7 +10,7 @@ module.exports = function () {
         step: 10,
         onChange: function (data) {
         $('#recInstallSize').html('')
-        KWGenerator()
+        kWGenerator()
         }
     })
 }

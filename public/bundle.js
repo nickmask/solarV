@@ -12195,7 +12195,7 @@ function KWGenerator () {
   var requiredSizeinstall = Math.round(kwUsagePerDay / kwPerDayPerSquareMeter)
   var installSize = kwUsagePerDay / sunlightHours
   var requiredSizeInstall = Math.round(installSize * 100) / 100
-  $('#recInstallSize').append('<h2>' + requiredSizeInstall + '</h2>' + '<p>Kilowatt system required</p>' +'<h2>' + requiredSizeinstall + '</h2>' + '<p>Meters squared required</p>')
+  $('#recInstallSize').append('<div id="KwDisplay">' + '<span id="kwText">' + requiredSizeInstall + '</span>' + '<span id="kwTextSmall">Kilowatt system required</span>' +'<h2>' + requiredSizeinstall + '</h2>' + '<p>Meters squared required</p>')
 }
 
 module.exports = KWGenerator

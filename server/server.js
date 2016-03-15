@@ -6,6 +6,14 @@ var app = express()
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+var knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: './db/auth.sqlite'
+  },
+  useNullAsDefault: true
+})
+
 //Routes being called from my routes.js
 routes(app)
 

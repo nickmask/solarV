@@ -1,3 +1,53 @@
 .kwGen {
   text-align: center;
 }
+
+body {
+  background-color: #f6ffff;
+}
+
+#recInstallText {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  padding: 0;
+  margin: 0;
+}
+
+#recInstallSizeText {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+.map {
+  background-image: url('/images/eda-map.png');
+}
+
+.navbar{
+  margin-bottom: 0;
+}
+
+.address {
+  margin-top: 23px;
+  padding-bottom: 23px;
+}
+
+.sunlightHours {
+  padding-bottom: 23px;
+}
+
+.billRow {
+  margin-top: 23px;
+}
+
+#recInstallSizeText {
+  margin-bottom: 23px;
+}
+
+.irs {
+  margin-bottom: 23px;  
+}

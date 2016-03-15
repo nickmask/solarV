@@ -1,6 +1,7 @@
 var $ = require('jquery')
 
 module.exports = function (callback) {
+  
   $('#submit').click(function () {
     var userData = {}
     userData.roofSize = $('#roofSize').val()
@@ -8,5 +9,7 @@ module.exports = function (callback) {
     userData.address = $('#address').val()
     callback('http://localhost:3000/api/v1/addUserData', userData)
     console.log(userData)
+
+
   })
 }

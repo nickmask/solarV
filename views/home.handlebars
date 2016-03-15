@@ -1,25 +1,30 @@
-<div class="row">
-    <div class="col-md-5 col-md-offset-1">
-        <h3> Address </h3>
-        <form>
-        <input type="text">
-        </form>
-    </div>    
-    <div class="col-md-5">
-        <h3>Hours of usable sunlight per year </h3>
-        <p>Based on regional analysis of weather patterns</p>
+<div class="row map">
+    <div class="row">
+        <div class="address col-md-4 col-md-offset-1 panel">
+            <div class="form-group">
+                <div id="locationField">
+                    <label class="control-label" for="focusedInput"><h3>Address</h3></label>
+                    <input id="autocomplete" placeholder="Enter your address" type="text" class="form-control"></input>
+                    </div>
+            </div>
+       </div>
+    </div>
+    <div class="row">
+        <div class="sunlightHours col-md-4 col-md-offset-1 panel">
+            <h3>Hours of usable sunlight per year </h3>
+            <p>Based on regional analysis of weather patterns</p>
+        </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-5 col-md-offset-1">
+<div class="row text-center billRow">
+    <div class="col-md-5 col-md-offset-1 panel">
         <form id="solarForm" method="get" action="/">
             <h3>What's your monthly electric bill?</h3>
-            <p>We use your bill to calculate how much electricity you use based on typical utility rates in your area.</p> 
+            <p>We use your bill to calculate how much electricity you use based on typical utility rates in your area.</p>
             <input type="text" id="energyBill" name="energyBill">
         </form>
     </div>
-    <div class="col-md-5 ">
+    <div class="col-md-4 col-md-offset-1 panel installSize">
         <h3>Your recommended solar installation size</h3>
         <p>This size will cover about 99% of your electricity usage.
         Solar installations are sized in kilowatts (kW).</p>

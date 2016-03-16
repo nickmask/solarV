@@ -1,16 +1,41 @@
 import $ from 'jquery'
 
-var sunlightHours = 5.59
+//Base required variables
+const sunlightHours = 5.59
 
-var pricePerKW = 0.28859
+const pricePerKW = 0.28859
 //kw per square meter is roughly 1000, but is then devided by efficency
-var kwPerSqMeter = 0.200
+const efficency = 0.2
 
-var energyBill = $(".irs-single").text()
+const baseKwPerSqMeter = 1
+
+
+const elecBill = $(".irs-single").text()
+
+//Cacluated variables
+const kwPerSqMeter = (baseKwPerSqMeter, efficency) => {
+  return efficency / baseKwPerSqMeter
+}
+
+const elecBillNoDollar = elecBill => {
+return elecBill.replace("$,''")
+}
+
+const kwUsagePerDay = (elecBillNoDollar, pricePerKW) => {
+  return (elecBillNoDollar / pricePerKW) / 30.4
+}
+
+const kwPerDayPerSquareMeter = (sunlightHours, kwPerSqMeter) => {
+  return sunlightHours * kwPerSqMeter
+}
 
 export default {
+  kwPerSqMeter: kwPerSqMeter,
+  elecBillNoDollar: elecBillNoDollar,
+  kwUsagePerDay: kwUsagePerDay,
+  kwPerDayPerSquareMeter: kwPerDayPerSquareMeter,
   sunlightHours : sunlightHours,
   pricePerKW : pricePerKW,
   kwPerSqMeter: kwPerSqMeter,
-  energyBill: energyBill
+  kwUsagePerDay: kwUsagePerDay
 }

@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import kWGenerator from './kWGenerator'
+import kWGenerator from './install-size'
 
 export default function () {
       $("#energyBill").ionRangeSlider({

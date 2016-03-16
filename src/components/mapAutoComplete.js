@@ -12,14 +12,14 @@ var componentForm = {
   postal_code: 'short_name'
 };
 
-function initAutocomplete() {
+export const initAutocomplete = () => {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
       {types: ['geocode']});
 
-//  It I the evil one - mwhahahahahahahaha
+//  It I the evil one - mwhahahahahaha fhaha
   // When the user selects an address from the dropdown, populate the address
   // fields in the form.
   autocomplete.addListener('place_changed', fillInAddress);
@@ -49,7 +49,7 @@ function fillInAddress() {
 
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
-function geolocate() {
+export const geolocate = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var geolocation = {
@@ -63,16 +63,4 @@ function geolocate() {
       autocomplete.setBounds(circle.getBounds());
     });
   }
-}
-
-
-module.exports = function () {
-  $(document).ready(function () {
-    // autocomplete.addListener('place_changed', fillInAddress);
-  })
-  $('#autocomplete').click(function () {
-    console.log('IT IS CLICKING')
-    initAutocomplete()
-    geolocate()
-  })
 }

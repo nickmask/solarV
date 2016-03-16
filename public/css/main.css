@@ -1,3 +1,7 @@
+.active {
+  color: green;
+}
+
 .kwGen {
   text-align: center;
 }
@@ -49,5 +53,5 @@ h3 {
 }
 
 .irs {
-  margin-bottom: 23px;  
+  margin-bottom: 23px;
 }

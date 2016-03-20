@@ -8,7 +8,9 @@ export default React.createClass({
   return (
     <div className='sunlightHours'>
       <h2>Hours of sunlight per year</h2>
-      <span>{this.props.sunlightHours}</span>
+      <span id="sunlight">
+        <h3>{this.props.sunlightHours}</h3>
+      </span>
     </div>
   )
   }

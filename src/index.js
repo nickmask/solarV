@@ -7,11 +7,7 @@ import WhySolar from './modules/Why-solar'
 import AboutUs from './modules/About-us'
 import GetInTouch from './modules/Get-in-touch'
 import Home from './modules/Home'
-
-// import kWGenerator from '../components/install-size'
-// import slider from '../components/entry'
-// import mapAutoComplete from '../components/mapAutoComplete'
-// import energySlider from '../components/energySlider'
+import NavBar from './modules/NavBar'
 
 render((
   <Router history={browserHistory}>
@@ -24,8 +20,7 @@ render((
   </Router>
 ), document.getElementById('app'))
 
-//what use to be rendered on the only page
-
-      // slider()
-      // energySlider()
-      // mapAutoComplete()
+render ((
+  <NavBar {...this.props} />
+), document.getElementById("navbar")
+)

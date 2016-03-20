@@ -44,15 +44,16 @@ export default React.createClass({
 
   render: function () {
   return (
-    <div class='address'>
+    <div className='address col-md-4 col-sm-4 col-sm-offset-1 col-md-offset-1 panel'>
       <div>
-        <div>
+        <div className='form-group'>
           <h2
           className="control-label"
           for="focusedInput"
           >Address</h2>
           <input
           id="autocomplete"
+          className="form-control"
           onClick={this.startAutocomplete}
           placeholder="Enter your address"
           type="text"

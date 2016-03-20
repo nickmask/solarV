@@ -24,10 +24,10 @@ export default React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className='monthlyBill install-calc col-md-5 col-sm-5 col-sm-offset-1 col-md-offset-1 panel'>
         <h2>What's your monthly electricity bill?</h2>
         <Slider
-        defaultValue={450}
+        defaultValue={300}
         min={this.state.min}
         max={this.state.max}
         onChange={this.onSliderChange}

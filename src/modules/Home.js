@@ -6,6 +6,7 @@ import InstallSize from '../components/Install-size'
 import UpfrontCost from '../components/Upfront-cost'
 import TotalSavings from '../components/Total-savings'
 import PaybackYears from '../components/Payback-years'
+import MapHeader from '../components/Map-header'
 import path from 'path'
 import request from 'superagent'
 
@@ -18,7 +19,7 @@ export default React.createClass({
       solarPanelEfficency: 0.2,
       kwPerSquareMeter: 1,
       city: '',
-      elecBill: '',
+      elecBill: 300,
       installSizeMeter: '',
       installSizeKw: '',
       kwUsagePerDay: '',
@@ -34,7 +35,7 @@ export default React.createClass({
   },
 
   setInstall: function () {
-    if (this.state.elecBill != '' && this.state.city != '') {
+    if (this.state.city != '') {
       this.setState({ kwUsagePerDay: Math.round(((this.state.elecBill / this.state.electPricePerKw) / 30.4) * 100) / 100 })
       this.setState({ sunlightHoursPerDay: this.state.sunlightHoursPerYear / 365.25})
       this.setState({ kwPerSqMeter: this.state.solarPanelEfficency / this.state.kwPerSquareMeter})
@@ -73,27 +74,47 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
-        <EnterAdress
-        setCity={this.setCity}
-        city={this.state.city}
-        />
-        <SunlightHours
-        sunlightHours={this.state.sunlightHoursPerYear}
-        />
-        <h1>Quick installation calculator</h1>
-        <MonthlyBill
-        setBill={this.setBill}
-        />
-        <InstallSize
-        elecBill={this.state.elecBill}
-        installSizeMeter={this.state.installSizeMeter}
-        installSizeKw={this.state.installSizeKw}
-        />
-        <h1>Your installation</h1>
-        <UpfrontCost />
-        <TotalSavings />
-        <PaybackYears />
+      <div className='container-fluid'>
+        <MapHeader>
+          <div className='row'>
+            <EnterAdress
+            setCity={this.setCity}
+            city={this.state.city}
+            />
+          </div>
+          <div className='row'>
+            <SunlightHours
+            sunlightHours={this.state.sunlightHoursPerYear}
+            />
+          </div>
+        </MapHeader>
+        <div className='row'>
+          <div className='col-sm-offset-1 col-md-offset-1'>
+            <h1>Quick installation calculator</h1>
+          </div>
+        </div>
+        <div className='row'>
+          <MonthlyBill
+          setBill={this.setBill}
+          />
+          <InstallSize
+          elecBill={this.state.elecBill}
+          installSizeMeter={this.state.installSizeMeter}
+          installSizeKw={this.state.installSizeKw}
+          />
+        </div>
+        <div className='row'>
+          <div className='col-sm-offset-1 col-md-offset-1'>
+            <h1>Your installation</h1>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='install col-md-5 col-sm-5 col-sm-offset-1 col-md-offset-1'>
+            <UpfrontCost />
+            <TotalSavings />
+          </div>
+          <PaybackYears />
+        </div>
       </div>
     )
   }

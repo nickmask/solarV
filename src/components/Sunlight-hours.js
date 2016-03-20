@@ -1,16 +1,13 @@
 import React from 'react'
-import $ from 'jquery'
-import path from 'path'
-import request from 'superagent'
 
 export default React.createClass({
   render: function () {
   return (
-    <div className='sunlightHours'>
+    <div className='sunlightHours col-md-4 col-sm-6 col-sm-offset-1 col-md-offset-1 card panel'>
       <h2>Hours of sunlight per year</h2>
-      <span id="sunlight">
-        <h3>{this.props.sunlightHours}</h3>
-      </span>
+      <div id="sunlight">
+        <i className="fa fa-sun-o fa-4x"><span className="hours"> {this.props.sunlightHours}</span></i>
+      </div>
     </div>
   )
   }

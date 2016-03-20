@@ -7,7 +7,6 @@ import WhySolar from './modules/Why-solar'
 import AboutUs from './modules/About-us'
 import GetInTouch from './modules/Get-in-touch'
 import Home from './modules/Home'
-import NavBar from './modules/NavBar'
 
 render((
   <Router history={browserHistory}>
@@ -19,8 +18,3 @@ render((
     </Route>
   </Router>
 ), document.getElementById('app'))
-
-render ((
-  <NavBar {...this.props} />
-), document.getElementById("navbar")
-)

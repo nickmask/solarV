@@ -1,4 +1,5 @@
 import React from 'react'
+import '../stylesheets/modules/header'
 
 var NavBrand = React.createClass({
   render: function(){

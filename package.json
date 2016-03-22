@@ -2,7 +2,7 @@
   "name": "solarv",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha -w --compilers js:babel-core/register --require ./test/test-helper.js \"test/**/*.@(js|jsx)\"",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -27,27 +27,27 @@
   },
   "homepage": "https://github.com/nickmask/SolarV#readme",
   "dependencies": {
+    "autoprefixer": "^6.0.3",
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
+    "css-loader": "^0.23.0",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "if-env": "^1.0.0",
-    "ion-rangeslider": "^2.1.2",
     "jquery": "^2.2.1",
-    "knex": "^0.10.0",
-    "lomega": "^1.0.0",
+    "node-sass": "^3.4.1",
     "path": "^0.12.7",
+    "postcss-loader": "^0.8.0",
+    "raf": "^3.2.0",
     "rc-slider": "^3.4.0",
     "react": "^0.14.7",
     "react-bootstrap": "^0.28.3",
     "react-dom": "^0.14.7",
     "react-google-maps": "^4.9.1",
     "react-router": "^2.0.0",
-    "react-router-bootstrap": "^0.20.1",
-    "superagent": "^1.8.1",
-    "webpack": "^1.12.14"
-  },
-  "browser": {
-    "ionRangeSlider": "./node_modules/ion-rangeslider/js/ion-rangeslider.min.js"
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "superagent": "^1.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
@@ -62,6 +62,7 @@
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "standard": "^6.0.3"
   }
 }

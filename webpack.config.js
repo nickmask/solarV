@@ -1,23 +1,42 @@
 var webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 
-module.exports = {
-  entry: './src/index.js',
+const sassLoaders = [
+  'css-loader',
+  'postcss-loader',
+  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './src')
+]
 
-  output: {
-    path: 'public',
-    publicPath: ''
+const config = {
+  entry: {
+    app: ['./src/index']
   },
-
-  plugins: process.env.NODE_ENV === 'production' ? [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
-  ] : [],
-
-
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+      },
+      {
+        test: /\.sass$/,
+        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+      }
     ]
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.join(__dirname, './public'),
+    publicPath: '/'
+  },
+  plugins: [
+    new ExtractTextPlugin('bundle.css')
+  ],
+  resolve: {
+    extensions: ['', '.js', '.sass'],
+    modulesDirectories: ['src', 'node_modules']
   }
 }
+
+module.exports = config

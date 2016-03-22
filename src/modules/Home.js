@@ -6,7 +6,7 @@ import InstallSize from '../components/Install-size'
 import UpfrontCost from '../components/Upfront-cost'
 import TotalSavings from '../components/Total-savings'
 import PaybackYears from '../components/Payback-years'
-import MapHeader from '../components/Map-header'
+// import MapHeader from '../components/Map-header'
 import path from 'path'
 import request from 'superagent'
 
@@ -25,6 +25,8 @@ export default React.createClass({
       kwUsagePerDay: '',
       kwPerDayPerSquareMeter: '',
       kwPerSqMeter: '',
+      upfrontCost: '',
+      totalSavings: '',
     }
   },
   setBill: function(value) {
@@ -75,7 +77,7 @@ export default React.createClass({
   render() {
     return (
       <div className='container-fluid'>
-        <MapHeader>
+        <div>
           <div className='row'>
             <EnterAdress
             setCity={this.setCity}
@@ -87,7 +89,7 @@ export default React.createClass({
             sunlightHours={this.state.sunlightHoursPerYear}
             />
           </div>
-        </MapHeader>
+        </div>
         <div className='row'>
           <div className='col-sm-offset-1 col-md-offset-1'>
             <h1>Quick installation calculator</h1>

@@ -47,4 +47,4 @@ navbar.links = [
   {linkTo: "/why-solar", text: "Why solar?"},
   {linkTo: "/about-us", text: "Link 2"},
   {linkTo: "/get-in-touch", text: "Get in touch"},
-];
+]

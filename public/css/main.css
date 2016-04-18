@@ -1,0 +1,59 @@
+.active {
+  color: green;
+}
+
+body {
+  background-color: #f6ffff;
+
+}
+
+.hours {
+  font-family: "roboto";
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+
+.address {
+  margin-top: 23px;
+  padding-bottom: 23px;
+}
+
+.sunlightHours {
+  padding-bottom: 23px;
+}
+
+.navbar {
+  margin: 10px 10px;
+}
+
+.install-calc {
+  height: 100%;
+  padding-bottom: 23px;
+}
+
+.monthlyBill h2 {
+  padding-bottom: 10px;
+}
+
+.installSize {
+  text-align: center;
+}
+
+.payback {
+  text-align: center;
+}
+
+.paybackYears {
+  font-size: 5em;
+}
+
+.install {
+padding: 0;
+}

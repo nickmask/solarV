@@ -13,7 +13,8 @@ var NavMenu = React.createClass({
     var links = this.props.links.map(function(link){
       if(link.dropdown) {
         return (
-          <NavLinkDropdown links={link.links} text={link.text} active={link.active} />
+          <NavLinkDropdown links={link.links}  text={link.text}          active={link.active} 
+          />
         );
       }
       else {
@@ -23,7 +24,7 @@ var NavMenu = React.createClass({
       }
     });
     return (
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav navbar-static-top">
         {links}
       </ul>
     );

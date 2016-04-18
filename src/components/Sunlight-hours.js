@@ -1,14 +1,17 @@
 import React from 'react'
+import { Col } from 'react-bootstrap'
 
 export default React.createClass({
   render: function () {
   return (
-    <div className='sunlightHours col-md-4 col-sm-6 col-sm-offset-1 col-md-offset-1 card panel'>
-      <h2>Hours of sunlight per year</h2>
-      <div id="sunlight">
-        <i className="fa fa-sun-o fa-4x"><span className="hours"> {this.props.sunlightHours}</span></i>
+    <Col sm={4} smOffset={1} className='sunlightHours panel'>
+      <h2>Hours of sunlight avaliable</h2>
+      <div className="sunlight">
+        <div><img src='/images/sun.png' className="sun" /></div>
+        <div className='hours'> {this.props.sunlightHours}</div>
       </div>
-    </div>
+      <p>Based on regional weather patterns</p>
+    </Col>
   )
   }
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Input } from 'react-bootstrap'
 
 var placeSearch, autocomplete;
 
@@ -44,23 +45,23 @@ export default React.createClass({
 
   render: function () {
   return (
-    <div className='address col-md-4 col-sm-4 col-sm-offset-1 col-md-offset-1 panel'>
+    <Col sm={4} smOffset={1} className='address panel'>
       <div>
-        <div className='form-group'>
+        <Input className='form-group'>
           <h2
           className="control-label"
           for="focusedInput"
           >Address</h2>
-          <input
+          <Input
           id="autocomplete"
           className="form-control"
           onClick={this.startAutocomplete}
           placeholder="Enter your address"
           type="text"
           />
-        </div>
+        </Input>
       </div>
-    </div>
+    </Col>
   )
   }
 })

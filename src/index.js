@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import './stylesheets/modules/main'
 
 import App from './modules/App'
 import WhySolar from './modules/Why-solar'

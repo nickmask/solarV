@@ -11,7 +11,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <Navbar className='navbar' inverse>
+        <Navbar className='navbar navbar-static-top' inverse>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Solar V</a>

@@ -7,10 +7,6 @@ body {
 
 }
 
-.hours {
-  font-family: "roboto";
-}
-
 h2 {
   font-size: 2em;
 }
@@ -19,18 +15,9 @@ h1 {
   font-size: 2.5em;
 }
 
-
 .address {
   margin-top: 23px;
   padding-bottom: 23px;
-}
-
-.sunlightHours {
-  padding-bottom: 23px;
-}
-
-.navbar {
-  margin: 10px 10px;
 }
 
 .install-calc {

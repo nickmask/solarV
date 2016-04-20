@@ -18,7 +18,7 @@ export default function SimpleMap (props) {
             ref={(map) => console.log(map)}
             defaultZoom={3}
             defaultCenter={{lat: -25.363882, lng: 131.044922}}
-            onClick={::this.handleMapClick}>
+            onClick={this.handleMapClick}>
             {this.state.markers.map((marker, index) => {
               return (
                 <Marker

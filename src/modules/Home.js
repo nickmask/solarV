@@ -6,7 +6,7 @@ import InstallSize from '../components/Install-size'
 import UpfrontCost from '../components/Upfront-cost'
 import TotalSavings from '../components/Total-savings'
 import PaybackYears from '../components/Payback-years'
-import MapHeader from '../components/Map-header'
+// import MapHeader from '../components/Map-header'
 import path from 'path'
 import request from 'superagent'
 
@@ -25,6 +25,8 @@ export default React.createClass({
       kwUsagePerDay: '',
       kwPerDayPerSquareMeter: '',
       kwPerSqMeter: '',
+      upfrontCost: '',
+      totalSavings: '',
     }
   },
   setBill: function(value) {
@@ -42,18 +44,6 @@ export default React.createClass({
       this.setState({ kwPerDayPerSquareMeter: this.state.sunlightHoursPerDay * this.state.kwPerSqMeter })
       this.setState({ installSizeKw: Math.round((this.state.kwUsagePerDay / this.state.sunlightHoursPerDay) * 100) / 100 })
       this.setState({ installSizeMeter: Math.round(this.state.kwUsagePerDay / this.state.kwPerDayPerSquareMeter)})
-      // console.log('sunlightHoursPerYear', this.state.sunlightHoursPerYear)
-      // console.log('sunlightHoursPerDay', this.state.sunlightHoursPerDay)
-      // console.log('electPricePerKw', this.state.electPricePerKw)
-      // console.log('solarPanelEfficency', this.state.solarPanelEfficency)
-      // console.log('kwPerSquareMeter', this.state.kwPerSquareMeter)
-      // console.log('city', this.state.city)
-      // console.log('elecBill', this.state.elecBill)
-      // console.log('installSizeMeter', this.state.installSizeMeter)
-      // console.log('installSizeKw', this.state.installSizeKw)
-      // console.log('kwUsagePerDay', this.state.kwUsagePerDay)
-      // console.log('kwPerDayPerSquareMeter', this.state.kwPerDayPerSquareMeter)
-      // console.log('kwPerSqMeter', this.state.kwPerSqMeter)
     }
   },
 
@@ -75,7 +65,7 @@ export default React.createClass({
   render() {
     return (
       <div className='container-fluid'>
-        <MapHeader>
+        <div>
           <div className='row'>
             <EnterAdress
             setCity={this.setCity}
@@ -87,7 +77,7 @@ export default React.createClass({
             sunlightHours={this.state.sunlightHoursPerYear}
             />
           </div>
-        </MapHeader>
+        </div>
         <div className='row'>
           <div className='col-sm-offset-1 col-md-offset-1'>
             <h1>Quick installation calculator</h1>

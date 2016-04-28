@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { PropTypes, Component } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-export default React.createClass({
-  render() {
-    return <div>Get in touch</div>
+class getInTouch extends Component {
+  render () {
+    return (
+      <Row >
+        <Col sm={12}>
+          <div>
+            <h1>Coming soon...</h1>
+          </div>
+        </Col>
+      </Row>
+    )
   }
-})
+}
+
+export default getInTouch

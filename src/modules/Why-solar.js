@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
-require('../www/stylesheets/blog.sass')
 
 class Why extends Component {
   render () {

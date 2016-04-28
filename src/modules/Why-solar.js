@@ -1,11 +1,3 @@
-import React from 'react'
-
-export default React.createClass({
-  render() {
-    return <div>Why solar?</div>
-  }
-})
-
 import React, { PropTypes, Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
 require('../www/stylesheets/blog.sass')

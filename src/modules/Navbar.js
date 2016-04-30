@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, IndexLink } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
-import NavLink from './NavLinks'
+import NavLink from './NavLink'
 import classNames from 'classnames'
 import { Navbar, Nav } from 'react-bootstrap'
 
-class Navbar extends Component {
+class NavMenu extends Component {
 
   render () {
     return (
@@ -29,4 +29,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+export default NavMenu

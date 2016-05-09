@@ -16,14 +16,14 @@ export default class Testing extends Component {
 
   render () {
     return (
-      <Col sm={4} panel>
+      <Col sm={4} className='address col-md-4 col-sm-4 col-sm-offset-1 col-md-offset-1 panel'>
         <h2>Address</h2>
         <div>
           <label htmlFor="searchTextField">
             Please Insert an address:
           </label>
           <br/>
-          <input ref='searchField' id="searchTextField" type="text" size="50"/>
+          <input ref='searchField' id="searchTextField" type="text" size="30"/>
           <br/>
           <button onClick={this.buttonClick}>Submit</button>
           </div>

@@ -8,26 +8,12 @@ export default class Testing extends Component {
     return (
       <Col sm={4} panel>
         <h2>Address</h2>
-        <div className='sideImages'>
-          {this.props.build.map((bu, i) =>
-            <Image key={i} src={`/images/${bu}.png`} alt={bu} responsive/>
-          )}
-        </div>
+        <Geosuggest
+        placeholder='Start typing!'
+        initialValue='Hamburg'
+        location={new google.maps.LatLng(53.558572, 9.9278215)}
+        radis='20' />
       </Col>
     )
   }
 }
-
-<div className='address col-md-4 col-sm-4 col-sm-offset-1 col-md-offset-1 panel'>
-  <div>
-    <div className='form-group'>
-      <h2>Address</h2>
-      <Geosuggest
-         placeholder='Start typing!'
-         initialValue='New Zealand'
-         onSuggestSelect={this.onSuggestSelect}
-         location={new google.maps.LatLng(53.558572, 9.9278215)}
-         radius='20' />
-    </div>
-  </div>
-</div>

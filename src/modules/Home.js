@@ -1,12 +1,11 @@
 import React from 'react'
-import EnterAdress from '../components/Enter-address'
+import EnterAdress from '../containers/Address-auto-complete'
 import SunlightHours from '../components/Sunlight-hours'
 import MonthlyBill from '../components/Monthly-bill'
 import InstallSize from '../components/Install-size'
 import UpfrontCost from '../components/Upfront-cost'
 import TotalSavings from '../components/Total-savings'
 import PaybackYears from '../components/Payback-years'
-// import MapHeader from '../components/Map-header'
 import path from 'path'
 import request from 'superagent'
 

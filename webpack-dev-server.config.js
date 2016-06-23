@@ -52,7 +52,7 @@ const config = {
     ], path.resolve(__dirname, "src")),
     //redux dev tools
     devFlagPlugin,
-      
+
     new ExtractTextPlugin( "bundle.css" ),
   ],
   module: {

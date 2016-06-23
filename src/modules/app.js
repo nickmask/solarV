@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Grid } from 'react-bootstrap'
 import Navbar from './Navbar'
 import Home from './Home'
 
@@ -9,9 +8,9 @@ class App extends Component {
     return (
       <div className='section'>
         <Navbar/>
-        <Grid className='main'>
+        <div className='main'>
           {this.props.children || <Home/>}
-        </Grid>
+        </div>
       </div>
     )
   }

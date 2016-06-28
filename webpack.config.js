@@ -24,7 +24,7 @@ const config = {
   ],
   //  Config options on how to interpret requires imports
   resolve: {
-    extensions: ['', '.js', '.jsx', '.sass', '.css'],
+    extensions: ['', '.js', '.jsx', '.sass', '.css', '.scss'],
     //node_modules: ["web_modules", "node_modules"]  (Default Settings)
   },
   //Server Configuration options
@@ -53,28 +53,32 @@ const config = {
     //redux dev tools
     devFlagPlugin,
 
-    new ExtractTextPlugin( "bundle.css" ),
+    new ExtractTextPlugin( "bundle.css", { allChunks: true }),
   ],
   module: {
     loaders: [
       {
-        //React-hot loader and
-        test: /\.js$/,  //All .js files
+        test: /\.js$/,
         loaders: ['react-hot', 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0'],
-        exclude: [nodeModulesPath],
+        exclude: [nodeModulesPath]
+      },
+      {
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap'),
+        include: /flexboxgrid/
       },
       {
         test: /\.sass$/,
         loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
+        exclude: /flexboxgrid/
       },
-      { test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192',
-      },
-      { test: /\.svg$/,
-        loader: 'svg-loader',
-      },
-    ],
-  },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css?sourceMap", "sass?sourceMap"],
+        exclude: /flexboxgrid/
+      }
+    ]
+  }
 }
 
 module.exports = config

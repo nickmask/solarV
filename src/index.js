@@ -1,12 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+// require('./www/stylesheets/main')
 
-import App from './modules/App'
-import WhySolar from './modules/Why-solar'
-import AboutUs from './modules/About-us'
-import GetInTouch from './modules/Get-in-touch'
-import Home from './modules/Home'
+import App from './containers/views/App'
+import WhySolar from './containers/views/Why-solar'
+import AboutUs from './containers/views/About-us'
+import GetInTouch from './containers/views/Get-in-touch'
+import Home from './containers/views/Home'
 
 render((
   <Router history={browserHistory}>

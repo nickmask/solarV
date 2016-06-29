@@ -63,11 +63,6 @@ const config = {
         exclude: [nodeModulesPath]
       },
       {
-        test: /(\.scss|\.css)$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap'),
-        include: /flexboxgrid/
-      },
-      {
         test: /\.sass$/,
         loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
         exclude: /flexboxgrid/

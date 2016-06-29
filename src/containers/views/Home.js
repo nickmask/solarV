@@ -1,18 +1,23 @@
 import React, { PropTypes, Component } from 'react'
-import { Row, Col } from 'react-flexbox-grid/lib/index'
+import { Row, Col } from 'react-bootstrap'
+import AddressInput from '../Address-auto-complete'
+import PowerInput from '../Power-input'
+import PowerOutput from '../Power-output'
+require('../../www/stylesheets/home')
 
 export default React.createClass({
   render() {
-    const green = {backgroundColor: 'green'}
-    const red = {backgroundColor: 'red'}
-    const blue = {backgroundColor: 'blue'}
-    const yellow = {backgroundColor: 'yellow'}
     return (
       <Row>
-        <Col md={4} style={green}>Green</Col>
-        <Col md={4} style={red}>Red</Col>
-        <Col md={4} style={blue}>Blue</Col>
-        <Col md={12} style={yellow}>yellow</Col>
+        <Col sm={6} smOffset={3} className='panel'>
+          <AddressInput />
+        </Col>
+        <Col sm={6} smOffset={3} className='panel'>
+          <PowerInput />
+        </Col>
+        <Col sm={6} smOffset={3} className='panel'>
+          <PowerOutput />
+        </Col>
       </Row>
     )
   }

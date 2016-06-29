@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Grid } from 'react-flexbox-grid/lib/index'
 import Navbar from './Navbar'
-import Home from './Home'
+import Home from './views/Home'
+import { Grid } from 'react-bootstrap'
 require('../../www/stylesheets/main')
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <Grid className='main'>
+        <Grid>
           {this.props.children || <Home/>}
         </Grid>
       </div>

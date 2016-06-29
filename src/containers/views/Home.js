@@ -3,6 +3,8 @@ import { Row, Col } from 'react-bootstrap'
 import AddressInput from '../Address-auto-complete'
 import PowerInput from '../Power-input'
 import PowerOutput from '../Power-output'
+import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
+
 require('../../www/stylesheets/home')
 
 export default React.createClass({

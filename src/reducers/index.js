@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
-import { REQUEST_PROJECTS, RECEIVE_PROJECTS } from '../actions/index'
+import { ADD_ADDRESS, RECEIVE_PROJECTS } from '../actions/index'
 
 const rootReducer = combineReducers({
-  projects
+  user
 })
 
-function projects (state = { isFetching: false, list: [] }, action) {
+function user (state = { address: '' }, action) {
   switch (action.type) {
-    case REQUEST_PROJECTS:
+    case ADD_ADDRESS:
       return Object.assign({}, state, {
-        isFetching: true
+        address: action.address
       })
     case RECEIVE_PROJECTS:
       return Object.assign({}, state, {

@@ -1,11 +1,12 @@
 import Firebase from 'firebase'
 
-export const REQUEST_PROJECTS = 'REQUEST_PROJECTS'
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS'
+export const ADD_ADDRESS = 'ADD_ADDRESS'
 
-export function requestProjects () {
+export function addAddress (address) {
   return {
-    type: REQUEST_PROJECTS
+    type: ADD_ADDRESS,
+    address: address
   }
 }
 

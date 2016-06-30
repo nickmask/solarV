@@ -5,13 +5,13 @@ const rootReducer = combineReducers({
   user
 })
 
-function user (state = { address: '', city: '' }, action) {
+function user (state = { address: '' }, action) {
   switch (action.type) {
     case ADD_ADDRESS:
       return Object.assign({}, state, {
-        address: action.address,
-        city: action.city
+        address: action.address
       })
+      
     case RECEIVE_PROJECTS:
       return Object.assign({}, state, {
         isFetching: false,

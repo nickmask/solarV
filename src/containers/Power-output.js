@@ -1,9 +1,19 @@
 import React, { PropTypes, Component } from 'react'
 import { Col } from 'react-bootstrap'
-import Slider from 'react-toolbox/lib/slider'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addAddress } from '../actions/index.js'
 
 
-export default class PowerOutput extends Component {
+const electPricePerKw = 0.28859
+const solarPanelEfficency = 0.2
+const kwPerSquareMeter = 1
+
+class PowerOutput extends Component {
+
+  // size
+
+
 
   render () {
     return (
@@ -17,3 +27,13 @@ export default class PowerOutput extends Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return { power: state, address: state }
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ addAddress }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PowerOutput)

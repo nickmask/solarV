@@ -1,12 +1,14 @@
-import $ from 'jquery'
+// E = A * r * H * PR
+
+// E = Energy (kWh)
+// A = Total solar panel Area (m²)
+// r = solar panel yield (%)
+// H = Annual average solar radiation on tilted panels (shadings not included)
+// PR = Performance ratio, coefficient for losses (range between 0.5 and 0.9, default value = 0.75)
 
 export const kwPerSqMeter = (baseKwPerSqMeter, efficency) => {
   return efficency / baseKwPerSqMeter
 }
-
-// export const elecBillNoDollar = elecBill => {
-// return elecBill.replace('$','')
-// }
 
 export const kwUsagePerDay = (elecBillNoDollar, pricePerKW) => {
   return Math.round(((elecBillNoDollar / pricePerKW) / 30.4) * 100) / 100

@@ -1,29 +1,16 @@
 import React, { PropTypes, Component } from 'react'
-import { Link } from 'react-router'
-import { Col } from 'react-bootstrap'
 import Input from 'react-toolbox/lib/input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addAddress } from '../actions/index.js'
+import { addAddress, fetchCity } from '../actions/index.js'
 
 let autocomplete
-
-var componentForm = {
-  street_number: 'short_name',
-  route: 'long_name',
-  locality: 'long_name',
-  administrative_area_level_1: 'short_name',
-  country: 'long_name',
-  postal_code: 'short_name'
-}
-
 
 class AddressInput extends Component {
   constructor () {
     super()
     this.state = { address: []}
     this.fillInAddress = this.fillInAddress.bind(this);
-
   }
 
   componentDidMount () {
@@ -35,8 +22,6 @@ class AddressInput extends Component {
 
   handleChange (name, value) {
     this.setState({...this.state, [name]: value})
-    const { dispatch, addAddress } = this.props
-    // dispatch(addAddress(this.state.address))
   }
 
   fillInAddress () {
@@ -55,11 +40,11 @@ class AddressInput extends Component {
       var addressType = place.address_components[i].types[0];
       if (componentForm[addressType]) {
         data[addressType] = place.address_components[i][componentForm[addressType]]
-        console.log(data)
       }
     }
     this.setState({ address: data})
     dispatch(addAddress(this.state.address))
+    dispatch(fetchCity(this.state.address.locality))
   }
 
   render () {
@@ -70,7 +55,7 @@ class AddressInput extends Component {
           <label htmlFor="searchTextField">
             Please Insert an address:
           </label>
-          <Input id="autocomplete" type='text' label='' name='address' value={this.state.address} onChange={this.handleChange.bind(this, 'address')} />
+          <Input id="autocomplete" type='text' label='' name='address' />
         </div>
       </div>
     )
@@ -82,7 +67,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ addAddress }, dispatch)
+  return bindActionCreators({ addAddress, fetchCity }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddressInput)

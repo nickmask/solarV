@@ -3,10 +3,11 @@ import Firebase from 'firebase'
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS'
 export const ADD_ADDRESS = 'ADD_ADDRESS'
 
-export function addAddress (address) {
+export function addAddress (address, city) {
   return {
     type: ADD_ADDRESS,
-    address: address
+    address: address,
+    city: city
   }
 }
 

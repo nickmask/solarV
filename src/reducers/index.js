@@ -11,13 +11,6 @@ function user (state = { address: '' }, action) {
       return Object.assign({}, state, {
         address: action.address
       })
-      
-    case RECEIVE_PROJECTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        list: action.list,
-        receivedAt: action.receivedAt
-      })
     default:
       return state
   }

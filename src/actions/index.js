@@ -3,6 +3,7 @@ export const ADD_ADDRESS = 'ADD_ADDRESS'
 export const ADD_KW = 'ADD_KW'
 export const ADD_SIZE = 'ADD_SIZE'
 export const REQUEST_CITY = 'REQUEST_CITY'
+import Firebase from 'firebase'
 
 export function addAddress (address) {
   return {
@@ -46,12 +47,15 @@ export function receiveCity (jsonObj) {
 }
 
 export function fetchCity (city) {
+  console.log('in fetchCity action')
   return function (dispatch) {
     dispatch(requestCity())
+    console.log('before firebase')
     let cities = new Firebase(`https://nickmask.firebaseio.com/projects/${city}`)
     let arr = []
     cities.once('value', function (city) {
       city.forEach(function (childCity) {
+        console.log(childCity)
         arr.push({
           city: childCity.val()
         })

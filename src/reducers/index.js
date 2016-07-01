@@ -5,7 +5,7 @@ const rootReducer = combineReducers({
   user
 })
 
-function user (state = { address: '', power: '', sunlight: '' }, action) {
+function user (state = { address: '', power: '', sunlight: '', isFetching: false }, action) {
   switch (action.type) {
     case ADD_ADDRESS:
       return Object.assign({}, state, {

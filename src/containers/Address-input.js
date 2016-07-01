@@ -24,6 +24,10 @@ class AddressInput extends Component {
     this.setState({...this.state, [name]: value})
   }
 
+  fetchCity(city) {
+    dispatch(fetchCity(city))
+  }
+
   fillInAddress () {
     const { dispatch, addAddress } = this.props
     let place = autocomplete.getPlace()
@@ -43,8 +47,8 @@ class AddressInput extends Component {
       }
     }
     this.setState({ address: data})
+    fetchCity(this.state.address.locality)
     dispatch(addAddress(this.state.address))
-    dispatch(fetchCity(this.state.address.locality))
   }
 
   render () {

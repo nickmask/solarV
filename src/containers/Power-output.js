@@ -11,10 +11,6 @@ const kwPerSquareMeter = 1
 
 class PowerOutput extends Component {
 
-  // size
-
-
-
   render () {
     return (
       <div>

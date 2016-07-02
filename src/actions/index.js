@@ -49,9 +49,9 @@ export function receiveCity (jsonObj) {
 export function fetchCity (city) {
   console.log('in fetchCity action')
   return function (dispatch) {
+    console.log('after dispatch')
     dispatch(requestCity())
-    console.log('before firebase')
-    let cities = new Firebase(`https://nickmask.firebaseio.com/projects/${city}`)
+    let cities = new Firebase(`https://solar-v.firebaseio.com/${city}`)
     let arr = []
     cities.once('value', function (city) {
       city.forEach(function (childCity) {
@@ -60,6 +60,7 @@ export function fetchCity (city) {
           city: childCity.val()
         })
       })
+      console.log('outcome', arr)
       dispatch(receiveCity(arr))
     })
   }

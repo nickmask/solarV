@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -24,7 +24,8 @@ const store = createStore(
   )
 )
 
-render((
+function render () {
+  ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
@@ -34,7 +35,11 @@ render((
         <Route path="/get-in-touch" component={GetInTouch}/>
       </Route>
     </Router>
-  </Provider>
-), document.getElementById('app'))
+  </Provider>,
+  document.getElementById('app')
+  )
+}
 
 store.subscribe(render)
+
+render()

@@ -46,22 +46,46 @@ export function receiveCity (jsonObj) {
   }
 }
 
-export function fetchCity (city) {
-  console.log('in fetchCity action')
+export function fetchCity () {
+  console.log('I am in the action center')
   return function (dispatch) {
-    console.log('after dispatch')
     dispatch(requestCity())
-    let cities = new Firebase(`https://solar-v.firebaseio.com/${city}`)
+    console.log('after request')
+    let projects = new Firebase(`https://solar-v.firebaseio.com/Wellington`)
     let arr = []
-    cities.once('value', function (city) {
-      city.forEach(function (childCity) {
-        console.log(childCity)
+    projects.once('value', function (project) {
+      project.forEach(function (childProject) {
+        console.log('in for each')
         arr.push({
-          city: childCity.val()
+          projectName: childProject.key(),
+          projectData: childProject.val()
         })
       })
-      console.log('outcome', arr)
+      console.log(arr)
       dispatch(receiveCity(arr))
     })
   }
 }
+
+
+//
+// export function fetchCity (city, fullAddress) {
+//   console.log('in fetch city')
+//   return function (dispatch) {
+//     dispatch(addAddress(fullAddress))
+//     console.log('after dispatch Add_Address')
+//     dispatch(requestCity())
+//     let cities = new Firebase(`https://solar-v.firebaseio.com/Wellington`)
+//     let arr = []
+//     cities.once('value', function (c) {
+//       c.forEach(function (childCity) {
+//         console.log(childCity)
+//         arr.push({
+//           city: childCity.val()
+//         })
+//       })
+//       console.log('outcome', arr)
+//       dispatch(receiveCity(arr))
+//     })
+//   }
+// }

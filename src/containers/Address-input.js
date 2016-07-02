@@ -3,7 +3,6 @@ import Input from 'react-toolbox/lib/input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addAddress, fetchCity } from '../actions/index.js'
-import Firebase from 'firebase'
 
 let autocomplete
 
@@ -12,7 +11,6 @@ class AddressInput extends Component {
     super()
     this.state = { address: []}
     this.fillInAddress = this.fillInAddress.bind(this);
-    this.getSunlight = this.getSunlight.bind(this);
   }
 
   componentDidMount () {
@@ -27,7 +25,7 @@ class AddressInput extends Component {
   }
 
   fetchCity(city) {
-    dispatch(fetchCity(city))
+    this.props.fetchCity()
   }
 
   fillInAddress () {
@@ -52,21 +50,6 @@ class AddressInput extends Component {
     fetchCity(this.state.address.locality)
     dispatch(addAddress(this.state.address))
   }
-
-  // getSunlight (city) {
-  //   console.log('getting sunlight')
-  //   let cities = new Firebase(`https://solar-v.firebaseio.com/${city}`)
-  //   let arr = []
-  //   cities.once('value', function (c) {
-  //     c.forEach(function (childCity) {
-  //       console.log(childCity)
-  //       arr.push({
-  //         city: childCity.val()
-  //       })
-  //     })
-  //   })
-  //   console.log(arr)
-  // }
 
   render () {
     return (

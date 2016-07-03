@@ -4,20 +4,48 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addAddress } from '../actions/index.js'
 
-
-const electPricePerKw = 0.28859
-const solarPanelEfficency = 0.2
-const kwPerSquareMeter = 1
-
 class PowerOutput extends Component {
+  constructor () {
+    super()
+    this.state = { installKw: '', installMeters: 2110.3 }
+  }
+
+  installKw () {
+    console.log(this.props.sunlightHoursPerDay)
+    if (this.props.sunlightHoursPerDay != '' && this.props.kwUsagePerDay != '') {
+      console.log('Kw first')
+      const installKw = Math.round((this.props.kwUsagePerDay / this.props.sunlightHoursPerDay) * 100) / 100
+      return installKw + ' kW'
+    } else {
+      console.log('kw second')
+      return (<div></div>)
+    }
+  }
+
+  installSize () {
+    if (this.props.sunlightHoursPerDay != '' && this.props.kwPerSqMeter != '') {
+      console.log('size first')
+      const kwPerDayPerSquareMeter = this.props.sunlightHoursPerDay * this.props.kwPerSqMeter
+      const installMeters = Math.round(this.props.kwUsagePerDay / kwPerDayPerSquareMeter)
+      return installMeters + ' (square meters)'
+    } else {
+      console.log('size second')
+      return (<div></div>)
+    }
+  }
+
+  blah () {
+    this.setState({ kwPerDayPerSquareMeter: this.state.sunlightHoursPerDay * this.state.kwPerSqMeter })
+    this.setState({ installSizeMeter: Math.round(this.state.kwUsagePerDay / this.state.kwPerDayPerSquareMeter)})
+  }
 
   render () {
     return (
       <div>
         <h2>Your recommended installation size</h2>
         <div>
-          <h3>KW usage</h3>
-          <p>Square meters</p>
+          <h3>KW usage: {this.installKw()}</h3>
+          <p>{this.installSize()}</p>
         </div>
       </div>
     )
@@ -25,7 +53,7 @@ class PowerOutput extends Component {
 }
 
 function mapStateToProps (state) {
-  return { solar: state.user.solar, sunlight: state.user.sunlight }
+  return { kwPerSqMeter: state.user.power.kwPerSqMeter, kwUsagePerDay: state.user.power.kwUsagePerDay, sunlightHoursPerDay: state.user.details.sunlightHoursPerDay }
 }
 
 function mapDispatchToProps (dispatch) {

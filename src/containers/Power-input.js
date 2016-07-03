@@ -7,7 +7,7 @@ import { addPower } from '../actions/index.js'
 class PowerInput extends Component {
   constructor () {
     super()
-    this.state = { power: 400 }
+    this.state = { power: 400, solar: [{electPricePerKw: 0.28859}, {solarPanelEfficency: 0.2}, {RawkwPerSquareMeter: 1}] }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -16,7 +16,9 @@ class PowerInput extends Component {
     const newState = {}
     newState[slider] = value
     this.setState(newState)
-    dispatch(addPower(this.state.power))
+    this.setState({ kwUsagePerDay: Math.round(((this.state.power / this.state.solar[0].electPricePerKw) / 30.4) * 100) / 100 })
+    this.setState({ kwPerSqMeter: (this.state.solar[1].solarPanelEfficency / this.state.solar[2].RawkwPerSquareMeter) })
+    dispatch(addPower(this.state))
   }
 
   render () {

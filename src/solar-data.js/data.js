@@ -25,3 +25,10 @@ export const installSizeMeter = (kwUsagePerDay, kwPerDayPerSquareMeter) => {
 export const installSizeKw = (kwUsagePerDay, sunlightHoursPerDay) => {
   return Math.round((kwUsagePerDay / sunlightHoursPerDay) * 100) / 100
 }
+
+
+this.setState({ sunlightHoursPerDay: this.state.sunlightHoursPerYear / 365.25 })
+this.setState({ kwPerSqMeter: this.state.solarPanelEfficency / this.state.kwPerSquareMeter })
+this.setState({ kwPerDayPerSquareMeter: this.state.sunlightHoursPerDay * this.state.kwPerSqMeter })
+this.setState({ installSizeKw: Math.round((this.state.kwUsagePerDay / this.state.sunlightHoursPerDay) * 100) / 100 })
+this.setState({ installSizeMeter: Math.round(this.state.kwUsagePerDay / this.state.kwPerDayPerSquareMeter) })

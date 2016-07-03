@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react'
 import Input from 'react-toolbox/lib/input'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addAddress, fetchCity } from '../actions/index.js'
+import { addAddress } from '../actions/index.js'
 
 let autocomplete
 
 class AddressInput extends Component {
   constructor () {
     super()
-    this.state = { address: []}
+    this.state = { address: [], sunlight: 2110.3 }
     this.fillInAddress = this.fillInAddress.bind(this);
   }
 
@@ -30,6 +30,7 @@ class AddressInput extends Component {
 
   fillInAddress () {
     const { dispatch, addAddress } = this.props
+    console.log(this.props.dispatch)
     let place = autocomplete.getPlace()
     const componentForm = {
       street_number: 'short_name',
@@ -47,8 +48,7 @@ class AddressInput extends Component {
       }
     }
     this.setState({ address: data})
-    fetchCity(this.state.address.locality)
-    dispatch(addAddress(this.state.address))
+    dispatch(addAddress(this.state))
   }
 
   render () {
@@ -71,7 +71,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ addAddress, fetchCity }, dispatch)
+  return bindActionCreators({ addAddress }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddressInput)

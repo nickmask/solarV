@@ -5,10 +5,10 @@ export const ADD_SIZE = 'ADD_SIZE'
 export const REQUEST_CITY = 'REQUEST_CITY'
 import Firebase from 'firebase'
 
-export function addAddress (address) {
+export function addAddress (user) {
   return {
     type: ADD_ADDRESS,
-    address: address
+    details: user
   }
 }
 
@@ -46,45 +46,29 @@ export function receiveCity (jsonObj) {
   }
 }
 
-export function fetchCity () {
-  console.log('I am in the action center')
-  return function (dispatch) {
-    dispatch(requestCity())
-    console.log('after request')
-    let projects = new Firebase(`https://solar-v.firebaseio.com/Wellington`)
-    let arr = []
-    projects.once('value', function (project) {
-      project.forEach(function (childProject) {
-        console.log('in for each')
-        arr.push({
-          projectName: childProject.key(),
-          projectData: childProject.val()
-        })
-      })
-      console.log(arr)
-      dispatch(receiveCity(arr))
-    })
-  }
-}
-
-
-//
-// export function fetchCity (city, fullAddress) {
-//   console.log('in fetch city')
+// export function fetchCity () {
 //   return function (dispatch) {
-//     dispatch(addAddress(fullAddress))
-//     console.log('after dispatch Add_Address')
 //     dispatch(requestCity())
-//     let cities = new Firebase(`https://solar-v.firebaseio.com/Wellington`)
+//     dispatch(receiveCity('1200'))
+//   }
+// }
+
+// export function fetchCity () {
+//   console.log('I am in the action center')
+//   return function (dispatch) {
+//     dispatch(requestCity())
+//     console.log('after request')
+//     let projects = new Firebase(`https://solar-v.firebaseio.com/Wellington`)
 //     let arr = []
-//     cities.once('value', function (c) {
-//       c.forEach(function (childCity) {
-//         console.log(childCity)
+//     projects.once('value', function (project) {
+//       project.forEach(function (childProject) {
+//         console.log('in for each')
 //         arr.push({
-//           city: childCity.val()
+//           projectName: childProject.key(),
+//           projectData: childProject.val()
 //         })
 //       })
-//       console.log('outcome', arr)
+//       console.log(arr)
 //       dispatch(receiveCity(arr))
 //     })
 //   }

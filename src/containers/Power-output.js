@@ -25,7 +25,7 @@ class PowerOutput extends Component {
 }
 
 function mapStateToProps (state) {
-  return { power: state, address: state }
+  return { solar: state.user.solar, sunlight: state.user.sunlight }
 }
 
 function mapDispatchToProps (dispatch) {

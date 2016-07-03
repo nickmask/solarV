@@ -48,6 +48,7 @@ class AddressInput extends Component {
       }
     }
     this.setState({ address: data})
+    this.setState({ sunlightHoursPerDay: this.state.sunlight / 365.25 })
     dispatch(addAddress(this.state))
   }
 

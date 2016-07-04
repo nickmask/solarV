@@ -11,6 +11,11 @@ class PowerInput extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
+  componentDidMount () {
+    this.setState({ kwUsagePerDay: Math.round(((this.state.power / this.state.solar[0].electPricePerKw) / 30.4) * 100) / 100 })
+    this.setState({ kwPerSqMeter: (this.state.solar[1].solarPanelEfficency / this.state.solar[2].RawkwPerSquareMeter) })
+  }
+
   handleChange (slider, value) {
     const { dispatch, addPower } = this.props
     const newState = {}

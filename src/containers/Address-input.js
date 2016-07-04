@@ -15,7 +15,7 @@ class AddressInput extends Component {
 
   componentDidMount () {
     autocomplete = new google.maps.places.Autocomplete(
-      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      (document.getElementById('autocomplete')),
       {types: ['geocode']});
       autocomplete.addListener('place_changed', this.fillInAddress);
   }
@@ -24,13 +24,8 @@ class AddressInput extends Component {
     this.setState({...this.state, [name]: value})
   }
 
-  fetchCity(city) {
-    this.props.fetchCity()
-  }
-
   fillInAddress () {
     const { dispatch, addAddress } = this.props
-    console.log(this.props.dispatch)
     let place = autocomplete.getPlace()
     const componentForm = {
       street_number: 'short_name',

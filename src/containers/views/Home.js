@@ -3,8 +3,8 @@ import { Row, Col } from 'react-bootstrap'
 import AddressInput from '../Address-input'
 import PowerInput from '../Power-input'
 import PowerOutput from '../Power-output'
+import AdvancedDetails from '../Advanced-details'
 import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
-
 require('../../www/stylesheets/home')
 
 export default React.createClass({
@@ -19,6 +19,9 @@ export default React.createClass({
         </Col>
         <Col sm={6} smOffset={3} className='panel'>
           <PowerOutput />
+        </Col>
+        <Col sm={12}>
+          <AdvancedDetails />
         </Col>
       </Row>
     )

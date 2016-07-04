@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Navlink from './Navlink'
+import Navlink from '../Navlink'
 import AppBar from 'react-toolbox/lib/app_bar'
 import Navigation from 'react-toolbox/lib/navigation'
 import { Row } from 'react-foundation'

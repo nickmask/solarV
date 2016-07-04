@@ -14,8 +14,9 @@ class AdvancedOptions extends Component {
 
   render () {
     return (
-      <div className='panel advanced'>
-        Show advanced details 
+      <div className='panel details'>
+        <h2>Details</h2>
+        <p className='advanced'><span className='glyphicon glyphicon-menu-down' aria-hidden='true'></span> Show advanced details</p>
       </div>
     )
   }

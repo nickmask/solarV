@@ -10,9 +10,25 @@ class PowerOutput extends Component {
     this.state = { installKw: '', installMeters: 2110.3 }
   }
 
+  kwReady () {
+    if (this.props.sunlightHoursPerDay != undefined && this.props.kwUsagePerDay != undefined) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  sizeReady () {
+    if (this.props.sunlightHoursPerDay != undefined && this.props.kwPerSqMeter != undefined) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   installKw () {
-    console.log(this.props.sunlightHoursPerDay)
-    if (this.props.sunlightHoursPerDay != '' && this.props.kwUsagePerDay != '') {
+    console.log(this.props.sunlightHoursPerDay, this.props.kwUsagePerDay)
+    if (this.props.sunlightHoursPerDay != undefined && this.props.kwUsagePerDay != undefined) {
       console.log('Kw first')
       const installKw = Math.round((this.props.kwUsagePerDay / this.props.sunlightHoursPerDay) * 100) / 100
       return installKw + ' kW'
@@ -23,7 +39,8 @@ class PowerOutput extends Component {
   }
 
   installSize () {
-    if (this.props.sunlightHoursPerDay != '' && this.props.kwPerSqMeter != '') {
+    console.log(this.props.sunlightHoursPerDay, this.props.kwPerSqMeter)
+    if (this.props.sunlightHoursPerDay != undefined && this.props.kwPerSqMeter != undefined) {
       console.log('size first')
       const kwPerDayPerSquareMeter = this.props.sunlightHoursPerDay * this.props.kwPerSqMeter
       const installMeters = Math.round(this.props.kwUsagePerDay / kwPerDayPerSquareMeter)
@@ -34,18 +51,13 @@ class PowerOutput extends Component {
     }
   }
 
-  blah () {
-    this.setState({ kwPerDayPerSquareMeter: this.state.sunlightHoursPerDay * this.state.kwPerSqMeter })
-    this.setState({ installSizeMeter: Math.round(this.state.kwUsagePerDay / this.state.kwPerDayPerSquareMeter)})
-  }
-
   render () {
     return (
       <div>
         <h2>Your recommended installation size</h2>
         <div>
-          <h3>KW usage: {this.installKw()}</h3>
-          <p>{this.installSize()}</p>
+        {!this.kwReady() && !this.sizeReady() && <h3>Update address</h3>}
+        {this.kwReady() && this.sizeReady() && <div><h3>{this.installKw()}</h3><p>{this.installSize()}</p></div>}
         </div>
       </div>
     )

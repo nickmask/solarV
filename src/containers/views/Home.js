@@ -20,7 +20,7 @@ export default React.createClass({
         <Col sm={6} smOffset={3} className='panel'>
           <PowerOutput />
         </Col>
-        <Col sm={12}>
+        <Col sm={12} className='panel'>
           <AdvancedDetails />
         </Col>
       </Row>

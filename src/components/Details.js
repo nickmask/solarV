@@ -7,15 +7,9 @@ import { Button } from 'react-toolbox/lib/button'
 
 require('../www/stylesheets/home')
 
-class AdvancedOptions extends Component {
+class Details extends Component {
   constructor () {
     super()
-    this.state = {active: false}
-    this.handleToggle = this.handleToggle.bind(this)
-  }
-
-  handleToggle () {
-    this.setState({active: !this.state.active})
   }
 
   render () {

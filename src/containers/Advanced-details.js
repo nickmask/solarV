@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addAddress } from '../actions/index.js'
 import { Button } from 'react-toolbox/lib/button'
+import Details from '../components/Details'
 
 require('../www/stylesheets/home')
 

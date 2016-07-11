@@ -40,6 +40,4 @@ function render () {
   )
 }
 
-store.subscribe(render)
-
 render()

@@ -44,7 +44,9 @@ class PowerOutput extends Component {
       <div>
         <h2>Your recommended installation size</h2>
         <div>
-        {!this.kwReady() && !this.sizeReady() && <div className='install'><h3>Update address</h3></div>}
+        {!this.kwReady() && !this.sizeReady() && <div className='install'><p>Please update address and power usage details</p></div>}
+        {!this.kwReady() && this.sizeReady() && <div className='install'><p>Please update power usage details</p></div>}
+        {this.kwReady() && !this.sizeReady() && <div className='install'><p>Please update address</p></div>}
         {this.kwReady() && this.sizeReady() && <div className='install'><h3>{this.installKw()}</h3><p>{this.installSize()}</p></div>}
         </div>
       </div>

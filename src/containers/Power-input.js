@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux'
 import { addPower } from '../actions/index.js'
 
 class PowerInput extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = { power: 400, solar: [{electPricePerKw: 0.28859}, {solarPanelEfficency: 0.2}, {RawkwPerSquareMeter: 1}] }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -35,7 +35,7 @@ class PowerInput extends Component {
             Please enter your average monthly electricity bill cost:
           </label>
           <Slider min={50} max={800} step={10} value={this.state.power} onChange={this.handleChange.bind(this, 'power')} />
-          <h2 className='powerOutput'>${this.state.power}</h2>
+          <h2 className='powerOutput'>{this.state.power}</h2>
         </div>
       </div>
     )

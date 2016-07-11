@@ -23,8 +23,10 @@ class AdvancedOptions extends Component {
     return (
       <div className='details'>
         <h2>Details</h2>
-        <Button label='Show advanced details' raised accent onClick={this.handleToggle} />
-        { this.state.active ? <Details /> : <div></div> }
+        <div className='showDetails'>
+          <Button label='Show advanced details' raised accent onClick={this.handleToggle} />
+        </div>
+          { this.state.active ? <Details /> : <div></div> }
       </div>
     )
   }

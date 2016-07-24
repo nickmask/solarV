@@ -9,10 +9,10 @@ import { Provider } from 'react-redux'
 require('./www/stylesheets/main')
 
 import App from './containers/App'
-import WhySolar from './containers/views/Why-solar'
-import AboutUs from './containers/views/About-us'
-import GetInTouch from './containers/views/Get-in-touch'
-import Home from './containers/views/Home'
+import WhySolar from './components/Why-solar'
+import AboutUs from './components/About-us'
+import GetInTouch from './components/Get-in-touch'
+import Home from './components/Home'
 
 const loggerMiddleware = createLogger()
 

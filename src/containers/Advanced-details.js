@@ -9,8 +9,8 @@ import Details from '../components/Details'
 require('../www/stylesheets/home')
 
 class AdvancedOptions extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {active: false}
     this.handleToggle = this.handleToggle.bind(this)
   }

@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react'
 import { Row, Col } from 'react-bootstrap'
-import AddressInput from '../Address-input'
-import PowerInput from '../Power-input'
-import PowerOutput from '../Power-output'
-import AdvancedDetails from '../Advanced-details'
+import AddressInput from '../containers/Address-input'
+import PowerInput from '../containers/Power-input'
+import PowerOutput from '../containers/Power-output'
+import AdvancedDetails from '../containers/Advanced-details'
 import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
 require('../../www/stylesheets/home')
 

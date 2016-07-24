@@ -7,8 +7,8 @@ import { addAddress } from '../actions/index.js'
 require('../www/stylesheets/home')
 
 class PowerOutput extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = { installKw: '', installMeters: 2110.3 }
   }
 

@@ -7,8 +7,8 @@ import { addAddress } from '../actions/index.js'
 let autocomplete
 
 class AddressInput extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = { address: [], sunlight: 2110.3 }
     this.fillInAddress = this.fillInAddress.bind(this);
   }

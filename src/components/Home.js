@@ -5,7 +5,7 @@ import PowerInput from '../containers/Power-input'
 import PowerOutput from '../containers/Power-output'
 import AdvancedDetails from '../containers/Advanced-details'
 import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
-require('../../www/stylesheets/home')
+require('../www/stylesheets/home')
 
 export default React.createClass({
   render() {

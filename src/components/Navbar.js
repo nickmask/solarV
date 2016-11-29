@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import NavLink from '../Navlink'
+import NavLink from '../containers/Navlink'
 import AppBar from 'react-toolbox/lib/app_bar'
 import Navigation from 'react-toolbox/lib/navigation'
 import { Row } from 'react-foundation'
 import { Button } from 'react-toolbox/lib/button'
-import Link from 'react-toolbox/lib/link';
-
+import Link from 'react-toolbox/lib/link'
 
 class NavMenu extends Component {
 
